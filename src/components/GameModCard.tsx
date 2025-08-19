@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import GameStats from "./GameStats";
 
 interface GameModCardProps {
   title: string;
@@ -8,9 +9,13 @@ interface GameModCardProps {
   downloadUrl: string;
   gameType: 'gta' | 'freefire' | 'roblox' | 'minecraft';
   icon: string;
+  rating: string;
+  reviews: string;
+  size: string;
+  downloads: string;
 }
 
-const GameModCard = ({ title, description, image, downloadUrl, gameType, icon }: GameModCardProps) => {
+const GameModCard = ({ title, description, image, downloadUrl, gameType, icon, rating, reviews, size, downloads }: GameModCardProps) => {
   const getGradientClass = () => {
     switch (gameType) {
       case 'gta': return 'bg-gradient-gta';
@@ -54,10 +59,21 @@ const GameModCard = ({ title, description, image, downloadUrl, gameType, icon }:
           {description}
         </p>
         
+        <GameStats 
+          rating={rating}
+          reviews={reviews} 
+          size={size}
+          downloads={downloads}
+        />
+        
         <Button 
           asChild
           size="lg"
-          className={`w-full ${getGradientClass()} border-0 hover:shadow-xl hover:scale-105 transition-all duration-300 text-white font-bold text-lg py-6 animate-glow-pulse shadow-lg`}
+          className="w-full bg-gradient-to-r from-[#ff416c] to-[#ff4b2b] border-0 hover:shadow-xl hover:scale-105 transition-all duration-300 text-white font-bold text-lg py-6 shadow-lg"
+          style={{
+            backgroundSize: '400% 400%',
+            animation: 'gradientMove 6s ease infinite, pulse 2s infinite'
+          }}
         >
           <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
             🎮 Download Now - FREE!

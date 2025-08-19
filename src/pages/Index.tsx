@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import GameModCard from "@/components/GameModCard";
+import UserReviews from "@/components/UserReviews";
 import { useEffect } from "react";
 
 // Import game mod images
@@ -25,7 +26,11 @@ const Index = () => {
       image: gtaModImage,
       downloadUrl: "https://your-cpa-locker-url.com/gta-mobile-mod",
       gameType: 'gta' as const,
-      icon: "🚗"
+      icon: "🚗",
+      rating: "4.8",
+      reviews: "120k Reviews",
+      size: "1.2 GB", 
+      downloads: "+1.2M"
     },
     {
       title: "Free Fire MOD",
@@ -33,7 +38,11 @@ const Index = () => {
       image: freefireModImage,
       downloadUrl: "https://your-cpa-locker-url.com/free-fire-mod", 
       gameType: 'freefire' as const,
-      icon: "🔫"
+      icon: "🔫",
+      rating: "4.6",
+      reviews: "89k Reviews", 
+      size: "850 MB",
+      downloads: "+950K"
     },
     {
       title: "Roblox MOD",
@@ -41,7 +50,11 @@ const Index = () => {
       image: robloxModImage,
       downloadUrl: "https://your-cpa-locker-url.com/roblox-mod",
       gameType: 'roblox' as const,
-      icon: "🎯"
+      icon: "🎯",
+      rating: "4.7",
+      reviews: "156k Reviews",
+      size: "650 MB", 
+      downloads: "+2.1M"
     },
     {
       title: "Minecraft PE MOD",
@@ -49,7 +62,11 @@ const Index = () => {
       image: minecraftModImage,
       downloadUrl: "https://your-cpa-locker-url.com/minecraft-pe-mod",
       gameType: 'minecraft' as const,
-      icon: "⛏️"
+      icon: "⛏️",
+      rating: "4.9", 
+      reviews: "203k Reviews",
+      size: "1.1 GB",
+      downloads: "+3.5M"
     }
   ];
 
@@ -80,6 +97,10 @@ const Index = () => {
               downloadUrl={mod.downloadUrl}
               gameType={mod.gameType}
               icon={mod.icon}
+              rating={mod.rating}
+              reviews={mod.reviews}
+              size={mod.size}
+              downloads={mod.downloads}
             />
           ))}
         </div>
@@ -112,6 +133,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+        
+        {/* User Reviews Section */}
+        <UserReviews />
       </main>
       
       {/* Footer */}

@@ -116,6 +116,37 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #2b2e4a, #e84545);
+    background-size: 200% 200%;
+    animation: bgAnimation 10s ease infinite;
+    @apply text-foreground;
+  }
+
+  @keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s ease forwards;
   }
 }
